@@ -6,7 +6,7 @@ export const Banner = () => {
             <div className='2xl:w-full flex justify-between pl-[35%] items-start'>
                 <img src="/banner.png" alt="imagen del banner" className='2xl:w-[1000px] 2xl:pt-28' />
                 <button className='mt-10 mr-10'>
-                    <p className='text-tertiary text-6xl'  style={{ fontFamily: "'Zen Dots', sans-serif" }}>Play Music</p>
+                    <p className='text-tertiary text-6xl font-dots'>Play Music</p>
                 </button>
             </div>
             <figure>
