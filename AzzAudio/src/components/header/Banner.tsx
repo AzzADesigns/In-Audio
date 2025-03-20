@@ -6,7 +6,7 @@ export const Banner = () => {
             <div className='2xl:w-full flex justify-between 2xl:pl-[19%] items-start 2xl:mr-12  2xl:pt-0'>
                 <img src="/banner.png" alt="imagen del banner" className='2xl:w-[1200px] ' />
                 <button className='2xl:mt-10 absolute top-10 2xl:top-0 2xl:relative mr-5 cursor-pointer text-tertiary hover:text-secundary  '>
-                    <p className=' 2xl:text-2xl font-dots underline underline-offset-10 decoration-4 transition-all duration-200 hidden 2xl:flex'>Play Music</p>
+                    <p className=' 2xl:text-2xl font-dots underline underline-offset-10 decoration-4 transition-all duration-200 hidden 2xl:flex'>See genres</p>
                 </button>
             </div>
             <div className='absolute top-20 2xl:static 2xl:h-auto '>
