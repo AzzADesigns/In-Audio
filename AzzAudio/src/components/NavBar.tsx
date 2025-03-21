@@ -33,14 +33,30 @@ export const NavBar = () => {
 
 
     return (
-        <div className='text-tertiary fixed bottom-2 2xl:bottom-20 flex justify-center items-center bg-black/50 backdrop-blur-xl h-16 2xl:h-20  w-[80%] 2xl:w-[40%] px-5 2xl:px-16 rounded-full border-4 border-secundary'>
-            <ul className='flex w-full 2xl:w-full justify-between items-center 2xl:text-3xl  2xl:gap-0 '>
-                {navItems.map((item, index)=>(
-                        <li className="flex  2xl:w-auto justify-center  2xl:gap-52 items-center cursor-pointer hover:text-secundary hover:scale-105 transition-all duration-300 font-uniq" key={index}>
-                            {item}
-                        </li>
+        <div className="text-tertiary 
+                        fixed bottom-2 2xl:bottom-20 
+                        flex justify-center items-center 
+                        bg-black/50 backdrop-blur-xl 
+                        h-16 2xl:h-20 w-[80%] md:w-80 2xl:w-[40%]
+                        px-5 2xl:px-16 
+                        rounded-full 
+                        border-4 border-secundary">
+            <ul className="flex w-full 2xl:w-full  lg:w-96 
+                        justify-between items-center 
+                        2xl:text-3xl 2xl:gap-0">
+                {navItems.map((item, index) => (
+                    <li key={index} 
+                        className="flex justify-center items-center 
+                                    2xl:w-auto
+                                    cursor-pointer 
+                                    hover:text-secundary hover:scale-105 
+                                    transition-all duration-300 
+                                    font-uniq">
+                        {item}
+                    </li>
                 ))}
             </ul>
         </div>
+
     )
 }
