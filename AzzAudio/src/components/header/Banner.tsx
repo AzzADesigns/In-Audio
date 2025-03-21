@@ -1,6 +1,16 @@
-
+import { motion, useScroll, useSpring } from "framer-motion";
 
 export const Banner = () => {
+    const { scrollYProgress } = useScroll();
+
+    
+    const pathProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 20,
+        restDelta: 0.001,
+    });
+
+
     return (
         <section className='flex-center w-full mb-96 '>
             <div className='2xl:w-full flex justify-between 2xl:pl-[19%] items-start 2xl:mr-12  2xl:pt-0'>
@@ -15,8 +25,24 @@ export const Banner = () => {
             <div className='absolute 2xl:static 2xl:left-0 left-[5%] bottom-0'>
                 <p className='text-tertiary absolute   bottom-96 2xl:bottom-5 2xl:left-16 text-xs md:text-lg 2xl:text-xl font-uniq  tracking-[0.3em]'>“The sound of the unheard”</p>
             </div>
+            <figure className=" flex justify-center">
+                <svg
+                    width="100%"
+                    height="500"
+                    viewBox="0 0 500 1000"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <motion.path
+                        d="M250 0 C100 200, 400 300, 250 500 C50 700, 450 800, 250 1000"
+                        stroke="#D9D9D9"
+                        strokeWidth="15"
+                        fill="transparent"
+                        initial={{ pathLength: 0 }}
+                        style={{ pathLength: pathProgress }}
+                    />
+                </svg>
+            </figure>
         </section>
     )
 }
-
-//en tablet el logo no se ve
