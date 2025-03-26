@@ -9,8 +9,7 @@
 
 @font-face {
     font-family: 'Zen Dots';
-    src: url('./assets/fonts/ZenDots-Regular.woff') format('woff2'),
-        url('./assets/fonts/ZenDots-Regular.woff2') format('woff');
+    src: url('./assets/fonts/ZenDots-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -18,8 +17,7 @@
 
 @font-face {
     font-family: 'Zen Antique';
-    src: url('./assets/fonts/ZenAntique-Regular.woff') format('woff2'),
-        url('./assets/fonts/ZenAntique-Regular.woff2') format('woff');
+    src: url('./assets/fonts/ZenAntique-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
