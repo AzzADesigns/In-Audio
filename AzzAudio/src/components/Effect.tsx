@@ -8,6 +8,7 @@ export const Effect: React.FC<Props> = ({ children }) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const cellsRef = useRef<(HTMLDivElement | null)[]>([]);
     const mousePosition = useRef({ x: 0, y: 0 });
+    const colorToggle = useRef(false);
 
     const updateCells = () => {
         if (!containerRef.current) return;
@@ -26,8 +27,12 @@ export const Effect: React.FC<Props> = ({ children }) => {
                 Math.pow(mousePosition.current.y - cellY, 2)
             );
             
-            cell.style.boxShadow = distance < 500 
-                ? `0 0 35px 2px rgba(255, 255, 255, ${1 - distance / 125})`
+            const color1 = "#D9D9D9";
+            const color2 = "#00FFCC";
+            const animatedColor = colorToggle.current ? color1 : color2;
+            
+            cell.style.boxShadow = distance < 155
+                ? `0 0 35px 2px ${animatedColor}`
                 : 'none';
         });
         
@@ -48,9 +53,14 @@ export const Effect: React.FC<Props> = ({ children }) => {
         window.addEventListener("mousemove", handleMouseMove);
         const animationId = requestAnimationFrame(updateCells);
         
+        const interval = setInterval(() => {
+            colorToggle.current = !colorToggle.current;
+        }, 500);
+        
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
             cancelAnimationFrame(animationId);
+            clearInterval(interval);
         };
     },);
 
@@ -68,6 +78,7 @@ export const Effect: React.FC<Props> = ({ children }) => {
                     <div
                         key={index}
                         ref={setCellRef(index)}
+                        className="shadow-2xl"
                         style={{
                             transition: 'box-shadow 0.01s linear',
                         }}
