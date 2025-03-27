@@ -26,8 +26,8 @@ export const Effect: React.FC<Props> = ({ children }) => {
                 Math.pow(mousePosition.current.y - cellY, 2)
             );
             
-            cell.style.boxShadow = distance < 5000 
-                ? `0 0 30px 1px rgba(255, 255, 255, ${1 - distance / 80})`
+            cell.style.boxShadow = distance < 500 
+                ? `0 0 35px 2px rgba(255, 255, 255, ${1 - distance / 125})`
                 : 'none';
         });
         
@@ -63,7 +63,7 @@ export const Effect: React.FC<Props> = ({ children }) => {
             ref={containerRef}
             className="bg-[#020202] h-[95%] w-[95%] flex-center mt-2 2xl:mt-10 2xl:mb-10 relative overflow-hidden"
         >
-            <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 gap-[1px] z-0">
+            <div className="absolute inset-0 grid grid-cols-10 gap-5 grid-rows-10 z-0">
                 {Array.from({ length: 100 }).map((_, index) => (
                     <div
                         key={index}
