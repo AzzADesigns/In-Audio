@@ -31,8 +31,8 @@ export const Effect: React.FC<Props> = ({ children }) => {
             const color2 = "#00FFCC";
             const animatedColor = colorToggle.current ? color1 : color2;
             
-            cell.style.boxShadow = distance < 155
-                ? `0 0 35px 2px ${animatedColor}`
+            cell.style.boxShadow = distance < 120
+                ? `0 0 8px 2px ${animatedColor}`
                 : 'none';
         });
         
@@ -71,7 +71,7 @@ export const Effect: React.FC<Props> = ({ children }) => {
     return (
         <div 
             ref={containerRef}
-            className="bg-[#020202] h-[95%] w-[95%] flex-center mt-2 2xl:mt-10 2xl:mb-10 relative overflow-hidden"
+            className="bg-primary h-[95%] w-[95%] flex-center mt-2 2xl:mt-10 2xl:mb-10 relative overflow-hidden"
         >
             <div className="absolute inset-0 grid grid-cols-10 gap-5 grid-rows-10 z-0">
                 {Array.from({ length: 100 }).map((_, index) => (
