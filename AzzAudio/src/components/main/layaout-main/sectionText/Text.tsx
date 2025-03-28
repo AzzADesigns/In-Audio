@@ -1,0 +1,13 @@
+
+export const Text = () => {
+    return (
+        <div className="w-full 2xl flex-center bg-primary  text-tertiary 2xl:text-5xl font-dots ">
+            <p className="leading-tight tracking-wider">
+                "Unleashing the <span className="text-secundary">sound </span>  of tomorrow - <br/> 
+                <span className="text-secundary">empowering</span> artists, <span className="text-secundary">conecting</span> global audiences, <br/>
+                and <span className="text-secundary">redifering</span> the way we experience music.<br/>
+                Discover a world where <span className="text-secundary">every beat tells a story</span>."</p>
+        </div>
+    )
+}
+//mejorar diseño de tablets, notebooks, y pc pequeña
