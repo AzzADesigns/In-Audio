@@ -18,7 +18,7 @@ export const CubeGrid = () => {
     console.log("render")
     return (
         <div 
-            className="grid  absolute  self-end overflow-hidden"
+            className="grid w-fit h-fit"
             style={{
                 gridTemplateColumns: `repeat(${cols}, 10px)`,
                 gridTemplateRows: `repeat(${rows}, 10px)`,
