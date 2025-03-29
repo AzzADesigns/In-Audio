@@ -15,11 +15,11 @@ export const Banner = () => {
     }, []);
 
     return (
-        <header className="flex-center w-full ">
+        <header className="flex-center h-[400px] lg:h-full  w-full 2xl:h-full ">
             <div className="2xl:w-full flex justify-between 2xl:pl-[23%] items-start 2xl:mr-12  2xl:pt-5">
-                <img src="/banner.webp" alt="imagen del banner" className="" />
-                <button className="2xl:mt-10 absolute top-10 2xl:top-0 2xl:relative mr-8 cursor-pointer text-tertiary hover:text-secundary">
-                    <p className="xl:w-44 2xl:text-2xl font-dots underline underline-offset-10 decoration-4 transition-all duration-200 hidden 2xl:flex">
+                <img src="/banner.webp" alt="imagen del banner" className="mt-96 lg:mt-0" />
+                <button className="2xl:mt-10 absolute  2xl:top-0 2xl:relative mr-8 cursor-pointer text-tertiary hover:text-secundary">
+                    <p className="xl:w-44  2xl:text-2xl font-dots underline underline-offset-10 decoration-4 transition-all duration-200 hidden 2xl:flex">
                         See genres
                     </p>
                 </button>
@@ -32,7 +32,7 @@ export const Banner = () => {
                 />
             </figure>
             <blockquote className="absolute lg:w-10 xl:w-96 2xl:w-[500px] lg:top-[65%]  2xl:top-[50%] 2xl:left-0 left-[5%] bottom-0">
-                <p className="hidden lg:flex text-tertiary z-10 relative bottom-96 2xl:bottom-5 2xl:left-16 text-xs md:text-lg 2xl:text-xl font-uniq tracking-[0.3em]">
+                <p className="hidden lg:flex text-tertiary z-10 relative bottom-96 2xl:bottom-60 2xl:left-16 text-xs md:text-lg 2xl:text-xl font-uniq tracking-[0.3em]">
                     “The sound of the unheard”
                 </p>
             </blockquote>
