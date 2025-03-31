@@ -13,7 +13,8 @@ export const Banner = () => {
         const img = new Image();
         img.src = "/banner.webp"; 
     }, []);
-
+    
+    console.log("rerender")
     return (
         <header className="flex-center h-[400px] lg:h-full  w-full 2xl:h-full ">
             <div className="2xl:w-full flex justify-between 2xl:pl-[23%] items-start 2xl:mr-12  2xl:pt-5">
