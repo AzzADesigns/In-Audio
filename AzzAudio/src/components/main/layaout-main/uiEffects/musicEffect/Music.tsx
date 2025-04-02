@@ -15,15 +15,15 @@ export const Music = () => {
             } else if (window.innerWidth >= 1024) {
                 // lg
                 setCols(8);  
-                setRows(5);  
+                setRows(4);  
             } else if (window.innerWidth >= 768) {
                 // md
                 setCols(6);   
-                setRows(5);  
+                setRows(4);  
             } else {
                 // sm
-                setCols(4); 
-                setRows(4);  
+                setCols(3); 
+                setRows(3);  
             }
         };
 
@@ -34,7 +34,7 @@ export const Music = () => {
     }, []);
 
     return (
-        <div className="inline-flex gap-2 2xl ml-5 items-end p-2.5">
+        <div className="inline-flex gap-2 2xl ml-5 items-end p-5 xl:p-5 2xl:p-2.5">
             <CubeGrid cols={cols} rows={rows} />
         </div>
     );

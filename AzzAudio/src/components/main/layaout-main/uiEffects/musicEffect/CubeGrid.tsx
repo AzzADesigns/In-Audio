@@ -79,7 +79,7 @@ export const CubeGrid: React.FC<CubeGridProps> = ({ cols, rows }) => {
             style={{
                 gridTemplateColumns: `repeat(${cols}, 10px)`,
                 gridTemplateRows: `repeat(${rows}, 10px)`,
-                gap: '4px',
+                gap: '3px',
             }}
         >
             {Array.from({ length: cols * rows }).map((_, i) => {

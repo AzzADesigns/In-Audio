@@ -14,7 +14,7 @@ function App() {
                         <header className="w-full flex-center">
                             <Banner />
                         </header>
-                        <main className="w-full flex-cente">
+                        <main className="w-full h-full flex-cente">
                             <Main/>
                         </main>
                         <footer>

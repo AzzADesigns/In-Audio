@@ -31,7 +31,7 @@ export const Effect: React.FC<Props> = ({ children }) => {
             const color2 = "#00FFCC";
             const animatedColor = colorToggle.current ? color1 : color2;
             
-            cell.style.boxShadow = distance < 120
+            cell.style.boxShadow = distance < 140
                 ? `0 0 8px 2px ${animatedColor}`
                 : 'none';
         });
@@ -80,8 +80,8 @@ export const Effect: React.FC<Props> = ({ children }) => {
                         ref={setCellRef(index)}
                         className="shadow-2xl hover:scale-50"
                         style={{
-                            width: "140px", // Ajusta según el tamaño necesario
-                            height: "140px",
+                            width: "145px",
+                            height: "145px",
                             transition: "transform 0.2s ease-in-out, box-shadow 0.01s linear",
                         }}
                     />
