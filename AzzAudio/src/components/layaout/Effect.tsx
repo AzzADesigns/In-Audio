@@ -80,8 +80,8 @@ export const Effect: React.FC<Props> = ({ children }) => {
                         ref={setCellRef(index)}
                         className="shadow-2xl hover:scale-50"
                         style={{
-                            width: "140px", // Ajusta según el tamaño necesario
-                            height: "140px",
+                            width: "145px",
+                            height: "145px",
                             transition: "transform 0.2s ease-in-out, box-shadow 0.01s linear",
                         }}
                     />
