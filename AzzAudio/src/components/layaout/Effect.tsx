@@ -73,14 +73,16 @@ export const Effect: React.FC<Props> = ({ children }) => {
             ref={containerRef}
             className="bg-primary h-[95%] w-[95%] flex-center mt-2 2xl:mt-10 2xl:mb-10 relative overflow-hidden"
         >
-            <div className="absolute inset-0 grid grid-cols-10 gap-5 grid-rows-10 z-0">
+            <div className="absolute inset-0 grid grid-cols-10  grid-rows-10 z-0">
                 {Array.from({ length: 100 }).map((_, index) => (
                     <div
                         key={index}
                         ref={setCellRef(index)}
-                        className="shadow-2xl"
+                        className="shadow-2xl hover:scale-50"
                         style={{
-                            transition: 'box-shadow 0.01s linear',
+                            width: "140px", // Ajusta según el tamaño necesario
+                            height: "140px",
+                            transition: "transform 0.2s ease-in-out, box-shadow 0.01s linear",
                         }}
                     />
                 ))}

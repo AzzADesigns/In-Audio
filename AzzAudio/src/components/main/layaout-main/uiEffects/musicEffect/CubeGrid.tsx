@@ -1,47 +1,49 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
-export const CubeGrid = () => {
-    const ROWS = 5;
-    const COLS = 10;
+// Definición de tipos para las props
+interface CubeGridProps {
+    cols: number;
+    rows: number;
+}
+
+export const CubeGrid: React.FC<CubeGridProps> = ({ cols, rows }) => {
     const STAGES = 3;
     const ANIMATION_SPEED = 0.1;
-    const STAGE_DURATION = 300;
+    const STAGE_DURATION = 200;
 
-    // Uso de useState para manejar los valores que afectan el renderizado
-    const [currentHeights, setCurrentHeights] = useState<number[]>(Array(COLS).fill(0));
-    const [targetHeights, setTargetHeights] = useState<number[]>(Array(COLS).fill(0));
+    const [currentHeights, setCurrentHeights] = useState<number[]>(Array(cols).fill(0));
+    const [targetHeights, setTargetHeights] = useState<number[]>(Array(cols).fill(0));
     const [stage, setStage] = useState<number>(0);
 
-    const animationRef = useRef<number>(0);
-    const lastUpdateTimeRef = useRef<number>(0);
+    const animationRef = useRef<number>(0); 
+    const lastUpdateTimeRef = useRef<number>(0); 
 
-    // Función de interpolación optimizada
-    const lerp = useCallback((start: number, end: number, t: number): number => start + (end - start) * t, []);
 
-    // Generación de alturas objetivo memoizada
+    const lerp = useCallback((start: number, end: number, t: number): number => {
+        return start + (end - start) * t;
+    }, []);
+
     const generateTargetHeights = useCallback((): number[] => {
+        const timeFactor = Math.sin(Date.now() / 300); // Cambio más rápido para más ritmo
         switch (stage) {
             case 0:
-                // Arco ascendente-descendente
-                return Array.from({ length: COLS }, (_, i) =>
-                    Math.floor(Math.sin((i / COLS) * Math.PI) * (ROWS - 1))
+                // Efecto de "rebotar" en el ritmo con picos más rápidos
+                return Array.from({ length: cols }, (_, i) => 
+                    Math.floor(Math.sin((i / cols + timeFactor * 50) * Math.PI * 20) * (rows - 10))
                 );
             case 1:
-                // Zigzag diagonal descendente
-                return Array.from({ length: COLS }, (_, i) =>
-                    (i % 3) * Math.floor(ROWS / 2)
+                // Efecto más caótico, con variaciones inesperadas de altura
+                return Array.from({ length: cols }, (_, i) => 
+                    Math.floor(Math.sin((i + timeFactor) * Math.PI * 500) * (rows / 100) + Math.random() * (rows / 0.4))
                 );
-
-
             default:
-                // Movimiento aleatorio fluido
-                return Array.from({ length: COLS }, () =>
-                    Math.floor(Math.random() * ROWS)
+                // Efecto rítmico con más variabilidad para simular el ritmo
+                return Array.from({ length: cols }, (_, i) => 
+                    Math.floor(Math.sin(timeFactor * (i + 1)) * 3 + Math.random() * (rows / 3))
                 );
         }
-    }, [stage]);
+    }, [stage, cols, rows]);
 
-    // Configuración de intervalos para cambiar de etapa
     useEffect(() => {
         const updateStage = () => {
             setStage((prev) => (prev + 1) % STAGES);
@@ -52,11 +54,9 @@ export const CubeGrid = () => {
         return () => clearInterval(interval);
     }, [generateTargetHeights]);
 
-    // Animación optimizada con requestAnimationFrame
     useEffect(() => {
         const animate = (timestamp: number) => {
-            // Control de frame rate para suavizar la animación
-            if (timestamp - lastUpdateTimeRef.current > 16) { // ~60fps
+            if (timestamp - lastUpdateTimeRef.current > 16) {
                 setCurrentHeights((prev) =>
                     prev.map((current, i) =>
                         Math.abs(current - targetHeights[i]) < 0.1
@@ -73,27 +73,24 @@ export const CubeGrid = () => {
         return () => cancelAnimationFrame(animationRef.current);
     }, [targetHeights, lerp]);
 
-    // Renderizado optimizado
     return (
         <div
             className="grid w-fit h-fit"
             style={{
-                gridTemplateColumns: `repeat(${COLS}, 10px)`,
-                gridTemplateRows: `repeat(${ROWS}, 10px)`,
-                gap: '4px'
+                gridTemplateColumns: `repeat(${cols}, 10px)`,
+                gridTemplateRows: `repeat(${rows}, 10px)`,
+                gap: '4px',
             }}
         >
-            {Array.from({ length: COLS * ROWS }).map((_, i) => {
-                const colIndex = i % COLS;
-                const rowIndex = Math.floor(i / COLS);
-                const isActive = rowIndex >= ROWS - Math.round(currentHeights[colIndex]);
+            {Array.from({ length: cols * rows }).map((_, i) => {
+                const colIndex = i % cols;
+                const rowIndex = Math.floor(i / cols);
+                const isActive = rowIndex >= rows - Math.round(currentHeights[colIndex]);
 
                 return (
                     <div
                         key={`${colIndex}-${rowIndex}`}
-                        className={`w-[6px] h-[6px] transition-opacity duration-100 ${
-                            isActive ? "bg-secundary opacity-100" : "opacity-0"
-                        }`}
+                        className={`w-[6px] h-[6px] transition-opacity duration-100 ${isActive ? "bg-secundary opacity-100" : "opacity-0"}`}
                     />
                 );
             })}
