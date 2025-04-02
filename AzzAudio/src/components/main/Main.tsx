@@ -2,10 +2,12 @@ import { Text } from "./layaout-main/sectionText/Text"
 
 export const Main = () => {
     return (
-        <main className="h-52  flex-center 2xl:h-96 mb-96 w-full flex-center p-12 ">
-            <div className="w-full h-52 2xl:h-96  flex justify-center">
+        <main className=" h-full flex bg-primary mt-32 lg:mt-0 lg:pt-0 flex-center 2xl:h-96 mb-96 w-full flex-center  ">
+            <div className="w-full  2xl:h-96  flex justify-center">
                 <Text/>
             </div>
         </main>
     )
 }
+
+//cambiar el h cuando agreges mas componentes
