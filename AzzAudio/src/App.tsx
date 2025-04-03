@@ -11,10 +11,10 @@ function App() {
                 <Effect>
                     <div className=" flex-center z-50 w-[95%]">
                         <NavBar />
-                        <header className="w-full flex-center">
+                        <header className="w-full flex-center mb-10  sm:mb-52 xl:mb-0">
                             <Banner />
                         </header>
-                        <main className="w-full h-full flex-cente">
+                        <main className="w-full h-full mt-20  flex-cente">
                             <Main/>
                         </main>
                         <footer>
