@@ -1,17 +1,26 @@
-import { useRef, ReactNode, useEffect } from "react";
+import { useRef, ReactNode, useEffect, useState, useCallback } from "react";
 
 interface Props {
     children: ReactNode;
 }
 
 export const Effect: React.FC<Props> = ({ children }) => {
+    console.log("rerenderizado");
     const containerRef = useRef<HTMLDivElement | null>(null);
     const cellsRef = useRef<(HTMLDivElement | null)[]>([]);
     const mousePosition = useRef({ x: 0, y: 0 });
     const colorToggle = useRef(false);
+    const [isXL, setIsXL] = useState(window.innerWidth >= 1280);
 
-    const updateCells = () => {
-        if (!containerRef.current) return;
+    useEffect(() => {
+        const handleResize = () => setIsXL(window.innerWidth >= 1280);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+        
+    }, []);
+
+    const updateCells = useCallback(() => {
+        if (!isXL || !containerRef.current) return;
         
         const cols = 10;
         const cellWidth = containerRef.current.clientWidth / cols - 1;
@@ -37,19 +46,21 @@ export const Effect: React.FC<Props> = ({ children }) => {
         });
         
         requestAnimationFrame(updateCells);
-    };
+    }, [isXL]);
 
-    const handleMouseMove = (e: MouseEvent) => {
-        if (containerRef.current) {
-            const rect = containerRef.current.getBoundingClientRect();
-            mousePosition.current = {
-                x: e.clientX - rect.left,
-                y: e.clientY - rect.top
-            };
-        }
-    };
+    const handleMouseMove = useCallback((e: MouseEvent) => {
+        if (!isXL || !containerRef.current) return;
+
+        const rect = containerRef.current.getBoundingClientRect();
+        mousePosition.current = {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }, [isXL]);
 
     useEffect(() => {
+        if (!isXL) return;
+
         window.addEventListener("mousemove", handleMouseMove);
         const animationId = requestAnimationFrame(updateCells);
         
@@ -57,37 +68,49 @@ export const Effect: React.FC<Props> = ({ children }) => {
             colorToggle.current = !colorToggle.current;
         }, 500);
         
+        
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
             cancelAnimationFrame(animationId);
             clearInterval(interval);
         };
-    },);
+    }, [isXL, handleMouseMove, updateCells]);
 
     const setCellRef = (index: number) => (el: HTMLDivElement | null) => {
         cellsRef.current[index] = el;
     };
+
+    
 
     return (
         <div 
             ref={containerRef}
             className="bg-primary h-[95%] w-[95%] flex-center mt-2 2xl:mt-10 2xl:mb-10 relative overflow-hidden"
         >
-            <div className="absolute inset-0 grid grid-cols-10  grid-rows-10 z-0">
-                {Array.from({ length: 100 }).map((_, index) => (
-                    <div
-                        key={index}
-                        ref={setCellRef(index)}
-                        className="shadow-2xl hover:scale-50"
-                        style={{
-                            width: "145px",
-                            height: "145px",
-                            transition: "transform 0.2s ease-in-out, box-shadow 0.01s linear",
-                        }}
-                    />
-                ))}
-            </div>
+            {isXL && (
+                <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 z-0">
+                    {Array.from({ length: 100 }).map((_, index) => (
+                        <div
+                            key={index}
+                            ref={setCellRef(index)}
+                            className="shadow-2xl hover:scale-50 xl:w-[100px] xl:h-[100px] 2xl:w-[145px] 2xl:h-[145px]"
+                            style={{
+                                transition: "transform 0.2s ease-in-out, box-shadow 0.01s linear",
+                            }}
+                        />
+                    ))}
+                </div>
+            )}
             {children}
+            
         </div>
     );
 };
+
+
+
+
+
+
+
+

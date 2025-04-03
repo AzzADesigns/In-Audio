@@ -21,8 +21,8 @@ export const Banner = () => {
         <header className="flex-center h-[400px] lg:h-full  w-full 2xl:h-full ">
             <div className="2xl:w-full flex justify-between 2xl:pl-[23%] items-start 2xl:mr-12  2xl:pt-5">
                 <img src="/banner.webp" alt="imagen del banner" className="mt-96 lg:mt-0" />
-                <button className="2xl:mt-10 absolute  2xl:top-0 2xl:relative mr-8 cursor-pointer text-tertiary hover:text-secundary">
-                    <p className="xl:w-64 bg-primary xl:ml-28 gap-3 xl:h-32 xl:flex xl:justify-center xl:items-center 2xl:text-2xl font-dots underline underline-offset-10 decoration-4 transition-all duration-200 hidden 2xl:flex">
+                <button className="2xl:mt-10 absolute xl:flex justify-center xl:ml-80 2xl:ml-0 xl:w-full 2xl:w-auto 2xl:top-0 2xl:relative mr-8 cursor-pointer text-tertiary hover:text-secundary">
+                    <p className="xl:w-64 bg-primary  xl:ml-28 gap-3 xl:h-32 xl:flex xl:justify-center xl:items-center 2xl:text-2xl font-dots underline underline-offset-10 decoration-4 transition-all duration-200 hidden 2xl:flex">
                         See genres <BsFillPlayCircleFill/>
                     </p>
                 </button>
@@ -40,7 +40,13 @@ export const Banner = () => {
                 </p>
             </blockquote>
             <figure className="flex justify-center">
-                <svg width="100%" height="500" viewBox="0 0 500 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg 
+                    width="100%" 
+                    className="2xl:h-[500px] lg:h[300px] md:h-[250px] sm:h-[300px] xs:h-[200px] h-[200px]" 
+                    viewBox="0 0 500 1000" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                >
                     <motion.path
                         d="M250 0 C100 200, 400 300, 250 500 C50 700, 450 800, 250 1000"
                         stroke="#D9D9D9"

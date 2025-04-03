@@ -34,7 +34,7 @@ export const Music = () => {
     }, []);
 
     return (
-        <div className="inline-flex gap-2 2xl ml-5 items-end p-5 xl:p-5 2xl:p-2.5">
+        <div className="inline-flex gap-2 2xl ml-5 items-end px-3 py-6 xl:py-5 2xl:py-5">
             <CubeGrid cols={cols} rows={rows} />
         </div>
     );
