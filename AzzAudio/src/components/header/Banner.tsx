@@ -22,7 +22,7 @@ export const Banner = () => {
             <div className="2xl:w-full flex justify-between 2xl:pl-[23%] items-start 2xl:mr-12  2xl:pt-5">
                 <img src="/banner.webp" alt="imagen del banner" className="mt-96 lg:mt-0" />
                 <button className="2xl:mt-10 absolute xl:flex justify-center xl:ml-80 2xl:ml-0 xl:w-full 2xl:w-auto 2xl:top-0 2xl:relative mr-8 cursor-pointer text-tertiary hover:text-secundary">
-                    <p className="xl:w-64 bg-primary  xl:ml-28 gap-3 xl:h-32 xl:flex xl:justify-center xl:items-center 2xl:text-2xl font-dots underline underline-offset-10 decoration-4 transition-all duration-200 hidden 2xl:flex">
+                    <p className="xl:w-64 bg-primary  xl:ml-28 2xl:ml-5 gap-3 xl:h-32 xl:flex xl:justify-center xl:items-center 2xl:text-2xl font-dots underline underline-offset-10 decoration-4 transition-all duration-200 hidden 2xl:flex">
                         See genres <BsFillPlayCircleFill/>
                     </p>
                 </button>
