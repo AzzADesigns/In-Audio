@@ -4,12 +4,18 @@ import { useEffect } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 export const Banner = () => {
+    console.log('%cBanner render', 'color: orange'); // cada render
     const { scrollYProgress } = useScroll();
     const pathProgress = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 20,
         restDelta: 0.001,
     });
+
+    useEffect(() => {
+        console.log('%cBanner MOUNTED', 'color: green'); // solo cuando se monta
+        return () => console.log('%cBanner UNMOUNTED', 'color: red');
+    }, []);
 
     useEffect(() => {
         const img = new Image();

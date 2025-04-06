@@ -5,6 +5,7 @@ import { Effect } from "./components/layaout/Effect";
 import { Main } from "./components/main/Main";
 
 function App() {
+    console.log('%cApp render', 'color: green');
     console.log("app renderiza")
     return (
         <div className="min-h-screen flex-center bg-[linear-gradient(to_bottom_right,#013027,#01846a,#00c8a0,#017c63)]">
