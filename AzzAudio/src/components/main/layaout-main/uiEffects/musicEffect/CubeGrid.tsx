@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, memo } from "react";
 
 // Definición de tipos para las props
 interface CubeGridProps {
@@ -6,7 +6,8 @@ interface CubeGridProps {
     rows: number;
 }
 
-export const CubeGrid: React.FC<CubeGridProps> = ({ cols, rows }) => {
+const CubeGridComponent: React.FC<CubeGridProps> = ({ cols, rows }) => {
+    
     const STAGES = 3;
     const ANIMATION_SPEED = 0.1;
     const STAGE_DURATION = 200;
@@ -97,3 +98,5 @@ export const CubeGrid: React.FC<CubeGridProps> = ({ cols, rows }) => {
         </div>
     );
 };
+
+export const CubeGrid = memo(CubeGridComponent)

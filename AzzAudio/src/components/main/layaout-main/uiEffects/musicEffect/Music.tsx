@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { CubeGrid } from "./CubeGrid";
 
-export const Music = () => {
+export const Music = memo(() => {
+    console.log('%cMusic render', 'color: blue');
     const [cols, setCols] = useState(10);
     const [rows, setRows] = useState(5);
 
@@ -34,8 +35,8 @@ export const Music = () => {
     }, []);
 
     return (
-        <div className="inline-flex gap-2 2xl ml-5 items-end px-3 py-5 lg:py-4 xl:py-5 2xl:py-5">
+        <div className="inline-flex gap-2 2xl ml-5 items-end px-3 py-6 lg:py-4 xl:py-5 2xl:py-5">
             <CubeGrid cols={cols} rows={rows} />
         </div>
     );
-};
+});
