@@ -2,7 +2,7 @@ import { TitleSectionGenre } from "./TitleAndPresentation/TitleSectionGenre"
 
 export const OurGenres = () => {
     return (
-        <div className="bg-amber-950 w-full">
+        <div className=" w-full bg-primary">
             <TitleSectionGenre/>
 
         </div>
