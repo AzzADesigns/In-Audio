@@ -40,7 +40,7 @@ export const Effect: React.FC<Props> = ({ children }) => {
             const color2 = "#00FFCC";
             const animatedColor = colorToggle.current ? color1 : color2;
             
-            cell.style.boxShadow = distance < 200
+            cell.style.boxShadow = distance < 120
                 ? `0 0 8px 2px ${animatedColor}`
                 : 'none';
         });
