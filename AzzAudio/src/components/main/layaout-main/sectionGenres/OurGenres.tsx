@@ -13,7 +13,7 @@ export const OurGenres = () => {
                     <Presentation/>
                 </div>
             </section>
-            <section>
+            <section className="">
                 <Carrusel/>
             </section>
         </div>
