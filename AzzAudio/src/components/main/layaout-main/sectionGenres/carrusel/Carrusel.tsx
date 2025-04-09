@@ -32,7 +32,7 @@ export const Carrusel = () => {
     
 
     return (
-        <div className='flex-center h-[1000px] md:h-[600px] w-full bg-tertiary rounded-4xl z-0 mt-10'>
+        <div className='flex-center p-2  md:p-0 h-[1150px] md:h-[600px] w-full bg-tertiary rounded-4xl z-0 mt-10'>
             <div className="w-full max-w-full text-tertiary">
                 <ul ref={wrapperRef} className="group flex flex-col md:flex-row justify-center  h-[550px] gap-3">
                     {genres.map((genre, index)=>(
@@ -44,8 +44,6 @@ export const Carrusel = () => {
                                 "md:[transition:width_var(--transition,200ms_ease-in)]",
                                 "before:hidden md:before-block before:absolute before:bg-red-300 before:top-0 before:bottom-0 before:left-[-10px] before:rigth-[-10px]",
                                 "md:hover:w-[9%] md:[&:not(:hover),&:not(:first),&:not(:last)]:group-hover:w-[6%]",
-                                
-                                
                             )} 
                             key={genre.genre}
                         >
@@ -65,7 +63,7 @@ export const Carrusel = () => {
                                 />
                                 <div
                                     className={classNames(
-                                        "left-0 top-72 w-[600px] p-4 bg-primary transition-[transform,opacity] md:absolute md:p-5",
+                                        "left-0 top-72 md:w-[600px] h-32 md:h-auto p-4 bg-primary transition-[transform,opacity] md:absolute md:p-5",
                                         activeItem === index
                                         ? "md:translate-x-0 md:opacity-100"
                                         : "md:translate-x-4 md:opacity-0"
@@ -74,7 +72,7 @@ export const Carrusel = () => {
                                     <p className="text-sm text-secundary uppercase font-dots  md:text-lg">
                                         {genre.genre}
                                     </p>
-                                    <p className="text-lg font-bold md:text-2xl text-tertiary font-uniq">{genre.description}</p>
+                                    <p className="text-sm w-60 md:w-auto  md:text-2xl text-tertiary font-uniq">{genre.description}</p>
                                 </div>
                             </div>
                         </li>

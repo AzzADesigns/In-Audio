@@ -34,7 +34,7 @@ export const Banner = () => {
                     className="md:ml-[24%] 2xl:ml-0  2xl:absolute  2xl:left-[35%] 2xl:top-32 w-52 md:w-[50%] xl:w-[50%] 2xl:w-[30%]"
                 />
             </figure>
-            <blockquote className="absolute lg:w-10 xl:w-96 2xl:w-[500px] lg:top-[65%]  2xl:top-[50%] 2xl:left-0 left-[5%] bottom-0">
+            <blockquote className="absolute lg:w-10 xl:w-96 2xl:w-[500px] lg:top-[65%]  2xl:top-[30%] 2xl:left-0 left-[5%] bottom-0">
                 <p className="hidden lg:flex text-tertiary z-10 relative bottom-96 2xl:bottom-60 2xl:left-16 text-xs md:text-lg 2xl:text-xl font-uniq tracking-[0.3em]">
                     “The sound of the unheard”
                 </p>
