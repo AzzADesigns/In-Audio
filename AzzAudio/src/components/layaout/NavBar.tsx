@@ -40,7 +40,7 @@ export const NavBar = () => {
                         h-16 2xl:h-20 w-[80%] md:w-80 2xl:w-[40%]
                         px-5 2xl:px-16 
                         rounded-full 
-                        border-4 border-secundary">
+                        border-4 border-secundary z-50">
             <ul className="flex w-full 2xl:w-full  lg:w-96 
                         justify-between items-center 
                         2xl:text-3xl 2xl:gap-0">

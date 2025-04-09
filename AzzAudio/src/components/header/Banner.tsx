@@ -4,25 +4,19 @@ import { useEffect } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 export const Banner = () => {
-    console.log('%cBanner render', 'color: orange'); // cada render
     const { scrollYProgress } = useScroll();
     const pathProgress = useSpring(scrollYProgress, {
         stiffness: 100,
-        damping: 20,
+        damping: 30,
         restDelta: 0.001,
     });
 
-    useEffect(() => {
-        console.log('%cBanner MOUNTED', 'color: green'); // solo cuando se monta
-        return () => console.log('%cBanner UNMOUNTED', 'color: red');
-    }, []);
 
     useEffect(() => {
         const img = new Image();
         img.src = "/banner.webp"; 
     }, []);
-    
-    console.log("rerender")
+
     return (
         <header className="flex-center h-[400px] lg:h-full  w-full 2xl:h-full ">
             <div className="2xl:w-full flex justify-between 2xl:pl-[23%] items-start 2xl:mr-12  2xl:pt-5">
@@ -45,10 +39,10 @@ export const Banner = () => {
                     “The sound of the unheard”
                 </p>
             </blockquote>
-            <figure className="flex justify-center">
+            <figure className="flex justify-center  2xl:h-96">
                 <svg 
                     width="100%" 
-                    className="2xl:h-[500px] lg:h[300px] md:h-[250px] sm:h-[300px] xs:h-[200px] h-[200px]" 
+                    className="2xl:h-[900px] lg:h[300px] md:h-[250px] sm:h-[300px] xs:h-[200px] h-[200px]" 
                     viewBox="0 0 500 1000" 
                     fill="none" 
                     xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +50,7 @@ export const Banner = () => {
                     <motion.path
                         d="M250 0 C100 200, 400 300, 250 500 C50 700, 450 800, 250 1000"
                         stroke="#D9D9D9"
-                        strokeWidth="15"
+                        strokeWidth="10"
                         fill="transparent"
                         initial={{ pathLength: 0 }}
                         style={{ pathLength: pathProgress }}
