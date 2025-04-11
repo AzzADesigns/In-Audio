@@ -4,9 +4,10 @@ import { useState, useEffect, useRef, useCallback, memo } from "react";
 interface CubeGridProps {
     cols: number;
     rows: number;
+    color?: string;
 }
 
-const CubeGridComponent: React.FC<CubeGridProps> = ({ cols, rows }) => {
+const CubeGridComponent: React.FC<CubeGridProps> = ({ cols, rows, color }) => {
     
     const STAGES = 3;
     const ANIMATION_SPEED = 0.1;
@@ -91,7 +92,7 @@ const CubeGridComponent: React.FC<CubeGridProps> = ({ cols, rows }) => {
                 return (
                     <div
                         key={`${colIndex}-${rowIndex}`}
-                        className={`w-[6px] h-[6px] transition-opacity duration-100 ${isActive ? "bg-secundary opacity-100" : "opacity-0"}`}
+                        className={`w-[6px] h-[6px] transition-opacity duration-100 ${isActive ? `bg-${color} opacity-100` : "opacity-0"}`}
                     />
                 );
             })}
