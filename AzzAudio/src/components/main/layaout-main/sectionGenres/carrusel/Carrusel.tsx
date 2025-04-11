@@ -61,9 +61,10 @@ export const Carrusel = () => {
                                         activeItem === index ? "md:opacity-100" : "md:opacity-0"
                                     )}
                                 />
+                                {/*titulo y descipcion del genero */}
                                 <div
                                     className={classNames(
-                                        "left-0 top-72 md:w-[600px] h-32 md:h-auto p-4 bg-primary transition-[transform,opacity] md:absolute md:p-5",
+                                        "left-0 top-72 md:w-[30px] xl:w-[600px] h-32 md:h-auto p-4 bg-primary transition-[transform,opacity] md:absolute md:p-5",
                                         activeItem === index
                                         ? "md:translate-x-0 md:opacity-100"
                                         : "md:translate-x-4 md:opacity-0"
