@@ -35,8 +35,8 @@ export const Music = memo(() => {
     }, []);
 
     return (
-        <div className="inline-flex gap-2 2xl ml-5 items-end px-3 py-6 lg:py-4 xl:py-5 2xl:py-5">
-            <CubeGrid cols={cols} rows={rows} color={"primary"} />
+        <div className="inline-flex gap-2 2xl ml-5 bg-primary rounded-full md:rounded-4xl md:mr-4 items-end px-3 py-6 lg:py-4 xl:py-5 2xl:py-5">
+            <CubeGrid cols={cols} rows={rows} color={"secundary"} />
         </div>
     );
 });
