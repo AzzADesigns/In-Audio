@@ -1,3 +1,4 @@
+import { ListenToMusic } from "./layaout-main/FindMusic/ListenToMusic";
 import { OurGenres } from "./layaout-main/sectionGenres/OurGenres"
 import { Text } from "./layaout-main/sectionText/Text"
 
@@ -8,8 +9,11 @@ export const Main = () => {
             <div className="w-full  2xl:h-96  flex justify-center">
                 <Text/>
             </div>
-            <div className="w-full h-full">
+            <div className="w-full h-full mt-20 xl:mt-60">
                 <OurGenres/>
+            </div>
+            <div className="w-full h-full mt-20 xl:mt-96">
+                <ListenToMusic/>
             </div>
         </main>
     )
