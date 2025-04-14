@@ -1,6 +1,7 @@
 import "./search.css"
 
 export const Search = () => {
+    
     return (
         <section className="w-full flex-center"> 
             <form action="" className="w-60 h-20 md:w-[55%] md:h-40 lg:w-[40%] md:mt-16 lg:mt-20 xl:mt-24 2xl:mt-32 lg:h-36 border-4 border-secundary rounded-full flex flex-col p-4 md:p-10 xl:p-3  font-uniq bg-primary">
@@ -10,3 +11,4 @@ export const Search = () => {
         </section>
     )
 }
+//fijate en este video: para animar el search : https://youtu.be/D-ZTD_dplAI?feature=shared

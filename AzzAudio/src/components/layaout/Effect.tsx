@@ -82,7 +82,7 @@ export const Effect: React.FC<Props> = ({ children }) => {
     return (
         <div
             ref={containerRef}
-            className="bg-primary h-full w-full flex-center relative overflow-hidden"
+            className="bg-primary h-[95%] w-[95%] flex-center relative overflow-hidden"
         >
             {isXL && (
                 <div className="absolute inset-0 grid  grid-cols-10 grid-rows-10 gap-10 z-0">
