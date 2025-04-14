@@ -3,6 +3,7 @@ import { Banner } from "./components/header/Banner";
 import { NavBar } from "./components/layaout/NavBar";
 import { Effect } from "./components/layaout/Effect";
 import { Main } from "./components/main/Main";
+import { Footer } from "./components/footer/Footer";
 
 function App() {
     
@@ -14,11 +15,11 @@ function App() {
                         <header className="w-full flex-center mb-10  sm:mb-52 xl:mb-0">
                             <Banner />
                         </header>
-                        <main className="w-full h-full mt-20  flex-cente">
+                        <main className="w-full h-full mt-20  flex-center">
                             <Main/>
                         </main>
-                        <footer>
-                            
+                        <footer className="w-full">
+                            <Footer/>
                         </footer>
                     </div>
                 </Effect>

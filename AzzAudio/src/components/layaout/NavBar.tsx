@@ -34,7 +34,7 @@ export const NavBar = () => {
 
     return (
         <div className="text-tertiary 
-                        fixed bottom-2 2xl:bottom-20 
+                        fixed bottom-2 2xl:bottom-32 
                         flex justify-center items-center 
                         bg-black/50 backdrop-blur-xl 
                         h-16 2xl:h-20 w-[80%] md:w-80 2xl:w-[40%]
